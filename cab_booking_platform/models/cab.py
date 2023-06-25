@@ -1,6 +1,6 @@
 import uuid
-from location import Location
-from trip import Trip
+from models.location import Location
+from models.trip import Trip
 
 
 class Cab:
@@ -19,6 +19,10 @@ class Cab:
                 is_available={self.is_available} \
                 )"
     
+
+    def get_id(self) -> str:
+        return str(self.id)
+
 
     def set_is_available(self, is_available: bool):
         self.is_available = is_available

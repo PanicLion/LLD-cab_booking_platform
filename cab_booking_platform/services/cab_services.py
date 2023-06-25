@@ -33,7 +33,7 @@ class CabService:
 
     def get_cabs(self, source: Location, max_pickup_distance: float) -> list[Cab]:
         result: list[Cab] = []
-        for cab in self.cabs.values:
+        for cab in self.cabs.values():
             if (cab.get_is_available() 
                     and cab.get_current_location().calculate_distance(source) 
                     <= max_pickup_distance):

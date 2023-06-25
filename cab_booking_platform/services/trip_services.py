@@ -1,6 +1,6 @@
 import random
-from cab_services import CabService
-from rider_services import RiderService
+from services.cab_services import CabService
+from services.rider_services import RiderService
 from models.rider import Rider
 from models.location import Location
 from models.cab import Cab
@@ -20,7 +20,7 @@ class TripService:
     
     def create_trip(self, rider: Rider, source: Location, destination: Location) -> None:
         nearest_cabs: list[Cab] = self.cab_service.get_cabs(source, self.MAX_PICKUP_DISTANCE)
-
+        
         nearest_available_cabs: list[Cab] = list(
             filter(
                 lambda cab: cab.get_current_trip() == None, 

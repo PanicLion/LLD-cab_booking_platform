@@ -1,8 +1,8 @@
 import uuid
 from enum import Enum
-from rider import Rider
-from location import Location
-from cab import Cab
+from models.rider import Rider
+from models.location import Location
+# import models.cab  // Error because of circular import
 
 
 class TripStatus(Enum):
@@ -11,7 +11,7 @@ class TripStatus(Enum):
 
 
 class Trip:
-    def __init__(self, rider: Rider, cab: Cab, price: float, 
+    def __init__(self, rider: Rider, cab, price: float, 
                  source: Location, destination: Location) -> None:
         self.id = uuid.uuid4()
         self.rider = rider
@@ -21,6 +21,13 @@ class Trip:
         self.source = source
         self.destination = destination
     
+
+    def __str__(self) -> str:
+        return f"Trip(id={self.id}, rider={self.rider}, cab={self.cab}, \
+                status={self.status}, price={self.price}, \
+                source={self.source}, destination={self.destination} \
+                )"
+
 
     def end_trip(self):
         self.status = TripStatus.FINISHED

@@ -23,3 +23,16 @@ We want to build a cab booking platform to allow a rider to book a cab.
 - A rider can book a cab
 - Fetch history of all rides taken by a rider.
 - End the Trip
+
+## Test
+
+```
+git clone https://github.com/PanicLion/LLD-cab_booking_platform.git
+
+<!-- run the below command only if design branch hasn't merged with master -->
+git checkout design
+
+cd cab_booking_platform
+
+python main.py
+```
